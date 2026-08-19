@@ -1,0 +1,32 @@
+{
+  "_comment": "One-line definitions (shown under every intelligence's band header) and a short 'keyword phrase' used to build the Top-3-combined narrative sentence. Edit freely — this is display copy, not logic.",
+
+  "Logical": {
+    "definition": "the ability to reason, recognise patterns, and think through problems systematically.",
+    "keyword_phrase": "structured, step-by-step reasoning"
+  },
+  "Verbal": {
+    "definition": "the ability to use words effectively, in both writing and speech.",
+    "keyword_phrase": "a natural feel for words and language"
+  },
+  "Spatial": {
+    "definition": "the ability to perceive and mentally manipulate visual and spatial information.",
+    "keyword_phrase": "a strong sense of visual space"
+  },
+  "Bodily-Kinesthetic": {
+    "definition": "the ability to control body movement with precision, and to use that control to solve problems, create, or perform.",
+    "keyword_phrase": "precise, hands-on physical control"
+  },
+  "Interpersonal": {
+    "definition": "the ability to understand and work effectively with other people.",
+    "keyword_phrase": "an instinct for reading and working with people"
+  },
+  "Intrapersonal": {
+    "definition": "the ability to understand oneself — emotions, motivations, and inner state.",
+    "keyword_phrase": "steady, natural self-awareness"
+  },
+  "Musical": {
+    "definition": "the ability to perceive, create, and appreciate rhythm, pitch and sound.",
+    "keyword_phrase": "sensitivity to rhythm and sound"
+  }
+}

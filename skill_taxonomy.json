@@ -1,0 +1,11 @@
+{
+  "_comment": "Maps every raw-score column name (as it appears in your Excel) to its parent intelligence. Edit this per grade/school if activities are added or removed. Column name matching is case-insensitive and ignores extra spaces.",
+
+  "Logical": ["Problem Solving", "Conditional Reasoning", "Deductive Reasoning", "Eye to Detail"],
+  "Verbal": ["Comprehension", "Diction", "Articulation"],
+  "Spatial": ["Perceptual Reasoning", "Spatial Perception", "Visual Orientation"],
+  "Bodily-Kinesthetic": ["Reflexes", "Dexterity", "Body Balance"],
+  "Interpersonal": ["Interpersonal Skill", "Managerial Skill"],
+  "Intrapersonal": ["Intra Personal Skill", "Self Awareness"],
+  "Musical": ["Melody", "Musical Perception", "Audio Engineering Skill"]
+}

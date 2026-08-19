@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Carlito', sans-serif; color: #2B2140; font-size: 10.5pt; line-height: 1.55; }
+.page { width: 210mm; height: 297mm; position: relative; page-break-after: always; padding: 16mm 16mm 14mm; }
+.page:last-child { page-break-after: avoid; }
+h1, h2, h3, .display { font-family: 'Poppins', sans-serif; }
+
+.eyebrow { font-size: 8.5pt; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.pagefoot { position: absolute; bottom: 10mm; left: 16mm; right: 16mm; display: flex; justify-content: space-between; font-size: 7.5pt; color: #9b93b0; border-top: 0.75pt solid #E9E4F7; padding-top: 3mm; }
+.brandmark { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 9pt; color: #6C4CE0; }
+.tier-tag { display: inline-block; font-family: 'Poppins', sans-serif; font-size: 7.5pt; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 10px; color: white; }
+
+/* COVER */
+.cover { background: #6C4CE0; color: white; padding: 0; }
+.cover-inner { padding: 20mm 18mm; height: 100%; display: flex; flex-direction: column; }
+.cover-top { display: flex; justify-content: space-between; align-items: center; }
+.cover-brand { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15pt; color: white; }
+.cover-tag { font-size: 8.5pt; color: #E4DBFF; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+.cover-mid { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.cover-eyebrow { font-size: 9pt; letter-spacing: 0.14em; text-transform: uppercase; color: #D8CBFF; font-weight: 700; margin-bottom: 10px; }
+.cover-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 32pt; line-height: 1.15; color: white; margin-bottom: 14px; }
+.cover-sub { font-size: 11pt; color: #EDE6FF; max-width: 120mm; line-height: 1.6; }
+.cover-card { background: rgba(255,255,255,0.13); border: 0.75pt solid rgba(255,255,255,0.35); border-radius: 14px; padding: 16px 20px; margin-top: 26px; display: inline-block; }
+.cover-card div { font-size: 10pt; color: white; margin-bottom: 4px; }
+.cover-card b { font-weight: 700; }
+.cover-bottom { font-size: 8pt; color: #D8CBFF; display: flex; justify-content: space-between; }
+
+/* TOC */
+.toc-title { font-size: 22pt; font-weight: 700; margin-bottom: 20px; color: #2B2140; }
+.toc-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 4px; border-bottom: 0.75pt solid #E9E4F7; }
+.toc-row .n { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 10.3pt; color: #2B2140; }
+.toc-row .d { flex: 1; border-bottom: 1.5pt dotted #D8CBFF; margin: 0 10px; height: 6px; }
+.toc-row .p { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 10.3pt; color: #6C4CE0; }
+.toc-tag { display: inline-block; font-size: 7pt; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: white; padding: 2px 8px; border-radius: 8px; margin-right: 8px; vertical-align: 2px; }
+
+/* ABOUT */
+.about-title { font-size: 20pt; font-weight: 700; margin-bottom: 10px; color: #2B2140; }
+.about-p { font-size: 9.6pt; line-height: 1.65; color: #3c3550; margin-bottom: 11px; }
+.about-h { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 11pt; color: #6C4CE0; margin: 15px 0 7px; }
+.tier-legend { display: flex; gap: 10px; margin-top: 8px; }
+.tier-legend-card { flex: 1; border-radius: 10px; padding: 10px 12px; }
+.tier-legend-card .tl-t { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 9.3pt; margin-bottom: 4px; }
+.tier-legend-card .tl-d { font-size: 8pt; line-height: 1.5; }
+
+/* SNAPSHOT */
+.snap-title { font-size: 20pt; font-weight: 700; color: #2B2140; margin-bottom: 3px; }
+.snap-desc { font-size: 9.5pt; color: #6b6280; max-width: 150mm; }
+.tier-block { margin-top: 12px; }
+.tier-heading { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+.tier-heading .tt { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 11pt; }
+.snap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.snap-grid.single-col { grid-template-columns: 1fr; }
+.intel-card { border-radius: 12px; padding: 10px 14px; border: 0.75pt solid #E9E4F7; background: #FDFCFF; }
+.intel-card-head { margin-bottom: 6px; }
+.intel-name { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 10.3pt; }
+.skillbar-row { margin-bottom: 6px; }
+.skillbar-toprow { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+.skillbar-name { font-size: 9pt; font-weight: 700; color: #2B2140; }
+.skillbar-score { font-family: 'Poppins', sans-serif; font-size: 9pt; font-weight: 700; }
+.skillbar-track { height: 5px; background: #EDE9F9; border-radius: 4px; overflow: hidden; }
+.skillbar-fill { height: 100%; border-radius: 4px; }
+
+/* INTELLIGENCE PAGE */
+.band { border-radius: 14px; padding: 15px 20px; margin-bottom: 13px; color: white; }
+.band .bt { font-family: 'Poppins', sans-serif; font-size: 8.3pt; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; opacity: 0.9; margin-bottom: 3px; }
+.band .bh { font-family: 'Poppins', sans-serif; font-size: 18pt; font-weight: 700; }
+.band .bp { font-size: 9pt; margin-top: 4px; opacity: 0.95; max-width: 155mm; }
+.def-line { font-size: 9pt; font-style: italic; color: #6b6280; margin-bottom: 11px; padding-bottom: 9px; border-bottom: 0.75pt solid #E9E4F7; }
+.two-col { display: flex; gap: 20px; margin-bottom: 12px; }
+.col { flex: 1; }
+.subhead { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 8.8pt; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 7px; }
+.narrative-box { border-radius: 12px; padding: 12px 15px; font-size: 9.2pt; line-height: 1.55; }
+.reco-box { background: #FFFFFF; border: 1pt solid #E9E4F7; border-radius: 8px; padding: 10px 14px; font-size: 9pt; line-height: 1.55; border-left: 4pt solid; margin-bottom: 14px; }
+.ipbar-row { margin-bottom: 8px; }
+.ipbar-toprow { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+.ipbar-name { font-size: 9.2pt; font-weight: 700; color: #2B2140; }
+.ipbar-score { font-family: 'Poppins', sans-serif; font-size: 9.2pt; font-weight: 700; }
+.ipbar-track { height: 6px; background: #EDE9F9; border-radius: 4px; overflow: hidden; }
+.ipbar-fill { height: 100%; border-radius: 4px; }
+.stream-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 11.5pt; color: #2B2140; margin-bottom: 8px; }
+.stream-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.stream-card { border-radius: 10px; padding: 9px 12px; border: 0.75pt solid #E9E4F7; min-height: 40px; }
+.stream-card .sc-label { font-family: 'Poppins', sans-serif; font-size: 7.6pt; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 5px; }
+.stream-card .sc-job { font-size: 9pt; font-weight: 700; color: #2B2140; }
+.sc-blank { font-size: 8pt; font-style: italic; color: #a89f8f; }
+
+/* TOP 3 COMBINED */
+.combo-chips { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.combo-chip { background: rgba(255,255,255,0.18); border: 0.75pt solid rgba(255,255,255,0.4); border-radius: 20px; padding: 5px 14px; font-family: 'Poppins', sans-serif; font-size: 8.8pt; font-weight: 600; color: white; }
+
+/* SIGN-OFF */
+.signoff-hero { background: #FDFCFF; border-radius: 16px; border: 0.75pt solid #E9E4F7; padding: 26px 30px; text-align: center; margin-top: 26mm; }
+.signoff-hero .st { font-family: 'Poppins', sans-serif; font-size: 20pt; font-weight: 700; color: #6C4CE0; margin-bottom: 20px; }
+.sig-line { font-family: 'Poppins', sans-serif; font-size: 13pt; font-style: italic; color: #2B2140; margin-bottom: 4px; }
+.sig-name { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 10.5pt; margin-top: 14px; }
+.sig-role { font-size: 9pt; color: #6b6280; }
+.confid-box { margin-top: 40px; border: 0.75pt solid #E9E4F7; border-radius: 10px; padding: 14px 18px; font-size: 8pt; color: #8a8299; line-height: 1.6; }
+.contact-row { display: flex; justify-content: center; gap: 30px; margin-top: 26px; font-size: 9pt; color: #6C4CE0; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page cover">
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-brand">{{ brand.name }}</div>
+      <div class="cover-tag">{{ brand.program_name }}</div>
+    </div>
+    <div class="cover-mid">
+      <div class="cover-eyebrow">Multiple Intelligence Assessment</div>
+      <div class="cover-title">{{ student.first_name }}'s<br>Smart Profile</div>
+      <div class="cover-sub">A personalised look at how {{ student.first_name }} thinks, learns and solves problems &mdash; built from their own assessment results, not a generic template.</div>
+      <div class="cover-card">
+        <div><b>Name</b> &nbsp; {{ student.name }}</div>
+        <div><b>Class</b> &nbsp; {{ student.class }}</div>
+        <div><b>School</b> &nbsp; {{ student.school }}</div>
+      </div>
+    </div>
+    <div class="cover-bottom"><span>{{ brand.tagline }}</span><span>{{ generated_date }}</span></div>
+  </div>
+</div>
+
+<!-- PAGE 2: TOC -->
+<div class="page">
+  <div class="toc-title">Contents</div>
+  {% for entry in toc_entries %}
+  <div class="toc-row">
+    <span class="n">{% if entry.tier %}<span class="toc-tag" style="background:{{ entry.tier_color }};">{{ entry.tier }}</span>{% endif %}{{ entry.title }}</span>
+    <span class="d"></span><span class="p">{{ '%02d' % entry.page }}</span>
+  </div>
+  {% endfor %}
+  <div class="pagefoot"><span class="brandmark">{{ brand.name }}</span><span>Page 2</span></div>
+</div>
+
+<!-- PAGE 3: ABOUT -->
+<div class="page">
+  <div class="eyebrow" style="color:#6C4CE0;">About this report</div>
+  <div class="about-title">How to read {{ student.first_name }}'s results</div>
+  <p class="about-p">Every score in this report comes directly from {{ student.first_name }}'s own Multiple Intelligence assessment. Nothing here is generic or reused across students &mdash; the structure and depth of each section is shaped by their actual results.</p>
+
+  <div class="about-h">What is Multiple Intelligence theory?</div>
+  <p class="about-p">Developed by Harvard psychologist Dr. Howard Gardner in 1983, Multiple Intelligence theory proposes that people don't have one single kind of intelligence, but several distinct ones &mdash; each reflecting a different way of thinking, learning and solving problems. {{ brand.name }}'s {{ brand.program_name }} measures seven of these intelligences through hands-on activities, not written tests alone.</p>
+
+  <div class="about-h">This is a measure of innate ability</div>
+  <p class="about-p">This assessment measures innate ability &mdash; the natural, inborn shape of how {{ student.first_name }} thinks and solves problems &mdash; not how much a particular skill has been taught or practiced. A lower score means an intelligence is less natural right now, not that they failed to try or weren't exposed to it. This report always shows scaled, sub-skill-level scores &mdash; never a single blended number for an intelligence &mdash; so no signal is lost to averaging.</p>
+
+  <div class="about-h">How results are grouped in this report</div>
+  <p class="about-p">To make sense of several intelligences and many individual scores at once, this report groups {{ student.first_name }}'s results into three tiers, based on their own internal average per intelligence. These tiers are relative to their own profile only &mdash; not a comparison against other students.</p>
+
+  <div class="tier-legend">
+    <div class="tier-legend-card" style="background:#F8F5FF;">
+      <div class="tl-t" style="color:#6C4CE0;">Standout</div>
+      <div class="tl-d" style="color:#5c4d99;">The clearest natural signal in the results this round.</div>
+    </div>
+    <div class="tier-legend-card" style="background:#EEF6FF;">
+      <div class="tl-t" style="color:#2F8FE0;">Developing</div>
+      <div class="tl-d" style="color:#3d6d9c;">Present and usable, without being the dominant natural mode.</div>
+    </div>
+    <div class="tier-legend-card" style="background:#FFF8EC;">
+      <div class="tl-t" style="color:#C97B0E;">Growth area</div>
+      <div class="tl-d" style="color:#8a6a3a;">Not where natural strengths lie; building it takes deliberate effort.</div>
+    </div>
+  </div>
+
+  <div class="pagefoot"><span class="brandmark">{{ brand.name }}</span><span>Page 3 &middot; About this report</span></div>
+</div>
+
+<!-- PAGE 4: SNAPSHOT -->
+<div class="page">
+  <div class="eyebrow" style="color:#6C4CE0;">Your smart map</div>
+  <div class="snap-title">Where {{ student.first_name }}'s strengths show up</div>
+  <div class="snap-desc">Every bar below is an actual score from the assessment, out of 10, grouped by tier as described on the previous page.</div>
+
+  {% for tier_name, tier_intel_list in snapshot_tiers %}
+  {% if tier_intel_list %}
+  <div class="tier-block">
+    <div class="tier-heading">
+      <span class="tier-tag" style="background:{{ tier_colors[tier_name].bar }};">{{ tier_labels[tier_name] }}</span>
+      <span class="tt">{{ tier_intel_list | map(attribute='name') | join(', ') }}</span>
+    </div>
+    <div class="snap-grid{% if tier_intel_list | length == 1 %} single-col{% endif %}">
+      {% for intel in tier_intel_list %}
+      <div class="intel-card">
+        <div class="intel-card-head"><span class="intel-name" style="color:{{ tier_colors[tier_name].text }};">{{ intel.name }}</span></div>
+        {% for skill, score in intel.sub_skills %}
+        <div class="skillbar-row">
+          <div class="skillbar-toprow"><span class="skillbar-name">{{ skill }}</span><span class="skillbar-score" style="color:{{ tier_colors[tier_name].text }};">{{ '%g' % score }}/10</span></div>
+          <div class="skillbar-track"><div class="skillbar-fill" style="width:{{ score * 10 }}%;background:{{ tier_colors[tier_name].bar }};"></div></div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+
+  <div class="pagefoot"><span class="brandmark">{{ brand.name }}</span><span>Page 4 &middot; Your smart map</span></div>
+</div>
+
+<!-- INTELLIGENCE PAGES (one per intelligence) -->
+{% for intel in intelligence_pages %}
+<div class="page">
+  <div class="band" style="background:{{ tier_colors[intel.tier].band }};">
+    <div class="bt">{{ tier_labels[intel.tier] }}</div>
+    <div class="bh">{{ intel.name }} Intelligence</div>
+    <div class="bp">{{ intel.band_subtitle }}</div>
+  </div>
+  <div class="def-line">{{ intel.name }} intelligence is {{ intel.definition }}</div>
+
+  <div class="two-col">
+    <div class="col">
+      <div class="subhead" style="color:{{ tier_colors[intel.tier].text }};">{{ student.first_name }}'s scores</div>
+      {% for skill, score in intel.sub_skills %}
+      <div class="ipbar-row">
+        <div class="ipbar-toprow"><span class="ipbar-name">{{ skill }}</span><span class="ipbar-score" style="color:{{ tier_colors[intel.tier].text }};">{{ '%g' % score }}/10</span></div>
+        <div class="ipbar-track"><div class="ipbar-fill" style="width:{{ score * 10 }}%;background:{{ tier_colors[intel.tier].bar }};"></div></div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="col">
+      <div class="subhead" style="color:{{ tier_colors[intel.tier].text }};">What this tells us</div>
+      <div class="narrative-box" style="background:{{ tier_colors[intel.tier].box_bg }};">{{ intel.what_this_tells_us }}</div>
+    </div>
+  </div>
+
+  {% if intel.show_career_grid %}
+  <div class="subhead" style="color:{{ tier_colors[intel.tier].text }};">Recommendations</div>
+  <div class="reco-box" style="border-left-color:{{ tier_colors[intel.tier].bar }};">{{ intel.recommendation }}</div>
+
+  <div class="stream-title">Where this could lead &mdash; two roles per stream</div>
+  <div class="stream-grid">
+    {% for stream in streams %}
+    <div class="stream-card" style="background:{{ intel.stream_bg[stream] }};">
+      <div class="sc-label" style="color:{{ intel.stream_label_color[stream] }};">{{ stream }}</div>
+      {% if intel.careers[stream] %}
+        {% for job in intel.careers[stream] %}<div class="sc-job">{{ job }}</div>{% endfor %}
+      {% else %}
+        <div class="sc-blank">No strong natural pairing for this intelligence in {{ stream }}.</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="subhead" style="color:{{ tier_colors[intel.tier].text }};">Recommendations</div>
+  <div class="reco-box" style="border-left-color:{{ tier_colors[intel.tier].bar }};">{{ intel.recommendation }}</div>
+
+  <div class="stream-title">A note on career fit</div>
+  <div class="reco-box" style="border-left-color:{{ tier_colors[intel.tier].bar }}; margin-bottom:0;">
+    We're not listing career paths here the way we do for {{ student.first_name }}'s other intelligences &mdash; since {{ intel.name }} isn't where their natural strength lies right now, suggesting careers built on it wouldn't be honest advice. Their natural strengths point toward other paths &mdash; see the combined picture on the last results page.
+  </div>
+  {% endif %}
+
+  <div class="pagefoot"><span class="brandmark">{{ brand.name }}</span><span>Page {{ intel.page_number }} &middot; {{ intel.name }} Intelligence</span></div>
+</div>
+{% endfor %}
+
+<!-- TOP 3 COMBINED -->
+<div class="page">
+  <div class="band" style="background:#2B2140;">
+    <div class="bt">Where the top {{ top_n | length }} intelligences meet</div>
+    <div class="bh">The bigger picture</div>
+    <div class="bp">Careers rarely draw on one intelligence alone. Here's what {{ student.first_name }}'s strongest natural results suggest when they're read together &mdash; the same way our counsellors reason about it in a real session.</div>
+    <div class="combo-chips">
+      {% for intel_name in top_n %}<span class="combo-chip">#{{ loop.index }} {{ intel_name }}</span>{% endfor %}
+    </div>
+  </div>
+
+  <div class="narrative-box" style="background:#F6F3FF; margin-bottom:18px; font-size:9.8pt; line-height:1.65;">{{ combined_narrative_text }}</div>
+
+  <div class="stream-title">Where this combination could lead</div>
+  <div class="stream-grid">
+    {% for stream in streams %}
+    <div class="stream-card" style="background:{{ combined_stream_bg[stream] }}; min-height:auto;">
+      <div class="sc-label" style="color:{{ combined_stream_label_color[stream] }};">{{ stream }}</div>
+      {% if combined_careers[stream] %}
+        {% for job in combined_careers[stream] %}<div class="sc-job" style="margin-bottom:6px;">{{ job }}</div>{% endfor %}
+      {% else %}
+        <div class="sc-blank">No strong combined pairing in {{ stream }}.</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="pagefoot"><span class="brandmark">{{ brand.name }}</span><span>Page {{ combined_page_number }} &middot; Where the top intelligences meet</span></div>
+</div>
+
+<!-- SIGN-OFF -->
+<div class="page">
+  <div class="eyebrow" style="color:#6C4CE0; text-align:center;">Closing note</div>
+  <div class="signoff-hero">
+    <div class="st">Thank you, {{ student.first_name }}</div>
+    <div class="sig-line">"Every profile tells its own story &mdash; this one is just getting started."</div>
+    <div class="sig-name">{{ brand.counselor_signoff }}</div>
+    <div class="sig-role">{{ brand.program_name }} &middot; {{ brand.name }}</div>
+  </div>
+  <div class="contact-row"><span>{{ brand.website }}</span><span>{{ brand.email }}</span><span>{{ brand.phone }}</span></div>
+  <div class="confid-box">This report reflects one assessment round and is intended as a reference point for conversation with students, parents and educators &mdash; not a prediction or guarantee of future performance. It is prepared for the personal use of the named student and their family. {{ brand.name }} does not warrant the completeness of this report or the outcomes of any career path discussed within it, and this document may not be reproduced or distributed without permission.</div>
+  <div class="pagefoot"><span class="brandmark">{{ brand.name }}</span><span>Page {{ signoff_page_number }}</span></div>
+</div>
+
+</body>
+</html>

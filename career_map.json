@@ -1,0 +1,46 @@
+{
+  "_comment": "Two job profiles per stream per intelligence, taken from Jagrati's original Career Map. Leave a stream list EMPTY (not fabricated) where no strong natural pairing exists — the template renders an honest blank note automatically. Edit freely; this is your content, not derived logic.",
+
+  "Logical": {
+    "Science": ["Computer Programmer", "Engineer"],
+    "Commerce": ["Chartered Accountant", "Accountant"],
+    "Arts": ["Economist", "Lawyer"],
+    "Others": ["Detective"]
+  },
+  "Verbal": {
+    "Science": ["Library Science", "Web Developer"],
+    "Commerce": ["Marketing Consultant", "Brand Management"],
+    "Arts": ["Historian", "Journalist"],
+    "Others": ["Writer / Poet", "Radio Jockey"]
+  },
+  "Spatial": {
+    "Science": ["Architect", "Civil Engineer"],
+    "Commerce": ["Strategic Planner", "Advertiser"],
+    "Arts": ["Photo Journalism", "Fine Arts"],
+    "Others": ["Sculptor", "Cinematography"]
+  },
+  "Bodily-Kinesthetic": {
+    "Science": ["Mechanical Engineer", "Surgeon"],
+    "Commerce": ["Sports Management"],
+    "Arts": ["Physical Education", "Performing Arts"],
+    "Others": ["Adventure Sports", "Jewellery Designing"]
+  },
+  "Interpersonal": {
+    "Science": ["Physician", "Nurse"],
+    "Commerce": ["HR Manager", "Diplomat"],
+    "Arts": ["Psychologist", "Social Worker"],
+    "Others": ["Politician", "Public Relations Officer"]
+  },
+  "Intrapersonal": {
+    "Science": ["Theologian", "Counsellor"],
+    "Commerce": ["Entrepreneur", "Consultant"],
+    "Arts": ["Film Maker", "Philosopher"],
+    "Others": ["Writer", "Event Management"]
+  },
+  "Musical": {
+    "Science": ["Sound Engineering", "Sound Editor"],
+    "Commerce": [],
+    "Arts": ["Music Therapist", "Musician"],
+    "Others": ["DJ", "Music Critic"]
+  }
+}
